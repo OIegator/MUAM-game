@@ -19,44 +19,6 @@ public class gift {
     Timer timerUpdate;
     Timer timerUpd;
 
-    // Обработчик событий нажатий на клавиши
-    private class myKey implements KeyListener {
-
-
-        // Метод, который срабатывает при нажатии
-        public void keyPressed(KeyEvent e) {
-
-            // Получение кода нажатой клавиши
-            int key_ = e.getKeyCode();
-
-            if (key_ == 87) {
-
-                // Увеличение скорости десантника на 1 пиксель
-                verticalSpeed++;
-                horizontalSpeed++;
-            } else if (key_ == 83) {
-
-                // Уменьшение скорости десантника на 1 пиксель
-                verticalSpeed--;
-                horizontalSpeed--;
-            } else if (key_ == 68) {
-
-                // Увеличение скорости десантника на 30 пикселей
-                verticalSpeed += 30;
-                horizontalSpeed += 30;
-            } else if (key_ == 65) {
-
-                // Уменьшение скорости десантника на 30 пикселей
-                verticalSpeed -= 30;
-                horizontalSpeed -= 30;
-            }
-        }
-
-        public void keyReleased(KeyEvent e) {}
-
-        public void keyTyped(KeyEvent e) {}
-    }
-
     // Конструктор класса
     public gift(Image img) {
 
