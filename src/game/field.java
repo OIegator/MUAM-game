@@ -49,8 +49,8 @@ class field extends JPanel {
         }
 
         // Загрузка изображений подарков
-        gameGift = new gift[15];
-        for (int i = 0; i < 15; i++) {
+        gameGift = new gift[10];
+        for (int i = 0; i < 10; i++) {
             try {
                 gameGift[i] = new gift(ImageIO.read(new File("./gift" + i + ".png")));
                // JOptionPane.showMessageDialog(null, "Кратинка подарка №" + i + " успешно загружена.");
@@ -102,7 +102,7 @@ class field extends JPanel {
         gr.drawString("Time: " + stopwatch, 100, 100);
         gr.drawString("Score: " + score, 700, 100);
 
-        for (int i = 0; i < 15; i++) {
+        for (int i = 0; i < 10; i++) {
             gameGift[i].draw(gr);
             if (gameGift[i].act) { // Если подарок пропущен
                 // Если подарок достиг нижней границы
@@ -126,7 +126,7 @@ class field extends JPanel {
 
     private void updateStart() {
         int count = 0;
-        for (int i = 0; i < 15; i++) {
+        for (int i = 0; i < 10; i++) {
             if (!gameGift[i].act) {
                 if (count < difficulty) {
                     gameGift[i].start();
