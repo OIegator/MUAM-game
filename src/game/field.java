@@ -10,7 +10,9 @@ import java.io.*;
 class field extends JPanel {
     private Image hat; // Закрытая переменная класса, в которую загружается шапка
     private Image background; // Закрытая переменная класса, в которую загружается фон
+    private Image hellground; // Закрытая переменная класса, в которую загружается фон
     public int x = 500;
+    public static boolean bg = true;
     private int difficulty; // Переменная сложности
     private gift[] gameGift; // Массив подарков
     private Image endGame; // Изображение окончания игры
@@ -35,6 +37,13 @@ class field extends JPanel {
         // Загрузка фона из файла
         try {
             background = ImageIO.read(new File("./background.png"));
+            //JOptionPane.showMessageDialog(null, "Кратинка фона игры успешно загружена.");
+        } catch (IOException ex) {
+            JOptionPane.showMessageDialog(null, "Картинка фона игры не загружена.");
+        }
+
+        try {
+            hellground = ImageIO.read(new File("./hellground.png"));
             //JOptionPane.showMessageDialog(null, "Кратинка фона игры успешно загружена.");
         } catch (IOException ex) {
             JOptionPane.showMessageDialog(null, "Картинка фона игры не загружена.");
@@ -96,7 +105,11 @@ class field extends JPanel {
     public void paintComponent(Graphics gr) {
         super.paintComponent(gr);
         Font font = new Font("Tahoma", Font.BOLD, 40);
-        gr.drawImage(background, 0, 0, null);
+        if (bg) {
+            gr.drawImage(background, 0, 0, null);
+        } else {
+            gr.drawImage(hellground, 0, 0, null);
+        }
         gr.drawImage(hat, x, 900, null);
         gr.setFont(font);
         gr.drawString("Time: " + stopwatch, 100, 100);

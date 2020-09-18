@@ -1,8 +1,10 @@
 package game;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.io.File;
 
 // Класс окна, в котором размещено игровое поле
 class window extends JFrame {
@@ -48,12 +50,14 @@ class window extends JFrame {
                 // Увеличение скорости десантника на 30 пикселей
                 gift.verticalSpeed += 30;
                 gift.horizontalSpeed += 30;
+                field.bg = false;
             } else if (key_ == 65) {
 
                 // Уменьшение скорости десантника на 30 пикселей
                 if (gift.verticalSpeed > 30 && gift.horizontalSpeed > 30) {
                     gift.verticalSpeed -= 30;
                     gift.horizontalSpeed -= 30;
+                    field.bg = true;
                 }
             }
         }
